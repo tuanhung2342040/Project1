@@ -1,0 +1,73 @@
+
+import java.util.Scanner;
+public class Main {
+    static int problemOne(String s) {
+        int answer = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'a' || s.charAt(i) == 'e' || s.charAt(i) == 'i'
+                    || s.charAt(i) == 'o' || s.charAt(i) == 'u') {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    static int problemTwo(String s, String txt) {
+        int answer = 0;
+        int M = s.length();
+        int N = txt.length();
+        for (int i = 0; i <= N - M; i++) {
+            int j;
+            for (j = 0; j < M; j++) {
+                if (txt.charAt(i + j) != s.charAt(j)) {
+                    break;
+                }
+            }
+            if (j == M) {
+                answer++;
+                j = 0;
+            }
+        }
+
+        return answer;
+    }
+
+    static String problemThree(String s) {
+        int result = 0;
+        int n = s.length();
+
+        for (int i = 0; i < n - 1; i++) {
+            if (s.charAt(i) + 1 == s.charAt(i+1)) {
+                result++;
+                while (s.charAt(i) + 1 == s.charAt(i+1)) {
+                    i++;
+                }
+            }
+        }
+
+        return s;
+    }
+
+
+
+    public static void main(String[] args) {
+
+
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Input the string: ");
+        String str = scan.nextLine();
+        System.out.print("Number of  Vowels in the string: " + problemOne(str) + "\n");
+        System.out.println("String that you find: " );
+        String ss = scan.nextLine();
+        System.out.println("Input the String: " );
+        String txt =scan.nextLine();
+        System.out.println("Number of times bob occurs is: " + problemTwo(ss,txt));
+        System.out.println("Input the string :");
+        String st = scan.nextLine();
+        System.out.println("Longest substring in alphabetical order is: " + problemThree(st));
+
+        String s;
+    }
+
+}
+
